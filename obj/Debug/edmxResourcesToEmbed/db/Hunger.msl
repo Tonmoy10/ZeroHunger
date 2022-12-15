@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ZeroHungerModelStoreContainer" CdmEntityContainer="ZeroHungerEntities">
+    <EntitySetMapping Name="Admins">
+      <EntityTypeMapping TypeName="ZeroHungerModel.Admin">
+        <MappingFragment StoreEntitySet="Admins">
+          <ScalarProperty Name="a_id" ColumnName="a_id" />
+          <ScalarProperty Name="a_name" ColumnName="a_name" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="ZeroHungerModel.Employee">
+        <MappingFragment StoreEntitySet="Employees">
+          <ScalarProperty Name="e_id" ColumnName="e_id" />
+          <ScalarProperty Name="e_name" ColumnName="e_name" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Requests">
+      <EntityTypeMapping TypeName="ZeroHungerModel.Request">
+        <MappingFragment StoreEntitySet="Requests">
+          <ScalarProperty Name="req_id" ColumnName="req_id" />
+          <ScalarProperty Name="items" ColumnName="items" />
+          <ScalarProperty Name="exp_date" ColumnName="exp_date" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="r_id" ColumnName="r_id" />
+          <ScalarProperty Name="e_id" ColumnName="e_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Restaurants">
+      <EntityTypeMapping TypeName="ZeroHungerModel.Restaurant">
+        <MappingFragment StoreEntitySet="Restaurants">
+          <ScalarProperty Name="r_id" ColumnName="r_id" />
+          <ScalarProperty Name="r_name" ColumnName="r_name" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

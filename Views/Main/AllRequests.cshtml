@@ -1,0 +1,73 @@
+﻿@model IEnumerable<ZeroHunger.db.Request>
+
+@{
+    ViewBag.Title = "AllRequests";
+}
+<br />
+<a href="/Main/logout">
+    <button style="float:right" class="btn-warning col-lg-1">Logout</button>
+</a>
+<a href="/Main/DashAdmin">
+    <button style="float:right" class="btn-warning col-lg-1">Home</button>
+</a>
+
+<h2>AllRequests</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            Request ID
+        </th>
+        <th>
+            Item
+        </th>
+        <th>
+            Expiry Date
+        </th>
+        <th>
+            Status
+        </th>
+        <th>
+            Restaurant Name
+        </th>
+        <th>
+            Employee Name
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.req_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.items)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.exp_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.status)
+            </td>
+            <td>
+                @item.Restaurant.r_name
+            </td>
+            <td>
+                @{
+                    if (item.e_id == null)
+                    {
+                        @Html.DisplayFor(modelItem => item.e_id)
+                    }
+                    else
+                    {
+                        @item.Employee.e_name
+                    }
+                }
+            </td>
+        </tr>
+    }
+
+</table>

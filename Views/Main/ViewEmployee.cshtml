@@ -1,0 +1,51 @@
+﻿@model IEnumerable<ZeroHunger.db.Employee>
+
+@{
+    ViewBag.Title = "ViewEmployee";
+}
+<br />
+<a href="/Main/login">
+    <button style="float:right" class="btn-warning col-lg-1">Login</button>
+</a>
+<a href="/Main/Home">
+    <button style="float:right" class="btn-warning col-lg-1">Add User</button>
+</a>
+
+<h2>ViewEmployee</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Emplolyee ID
+        </th>
+        <th>
+            Name
+        </th>
+        <th>
+            Email
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.e_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.e_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.email)
+            </td>
+            <td>
+                @Html.ActionLink("Delete", "DeleteEmployee", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+    }
+
+</table>

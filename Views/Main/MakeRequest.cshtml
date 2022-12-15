@@ -1,0 +1,54 @@
+﻿@model ZeroHunger.db.Request
+
+@{
+    ViewBag.Title = "MakeRequest";
+}
+<br />
+<a href="/Main/logout">
+    <button style="float:right" class="btn-warning col-lg-1">Logout</button>
+</a>
+<a href="/Main/DashRestaurant">
+    <button style="float:right" class="btn-warning col-lg-1">Home</button>
+</a>
+
+<h2>MakeRequest</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Request</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.items, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.items, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.items, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.exp_date, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @*@Html.EditorFor(model => model.exp_date, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.exp_date, "", new { @class = "text-danger" })*@
+                <input type="date" name="exp_date" value="" />
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

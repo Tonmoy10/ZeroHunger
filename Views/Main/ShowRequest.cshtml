@@ -1,0 +1,59 @@
+﻿@model IEnumerable<ZeroHunger.db.Request>
+
+@{
+    ViewBag.Title = "ShowRequest";
+}
+<br />
+<a href="/Main/logout">
+    <button style="float:right" class="btn-warning col-lg-1">Logout</button>
+</a>
+<a href="/Main/DashRestaurant">
+    <button style="float:right" class="btn-warning col-lg-1">Home</button>
+</a>
+
+<h2>ShowRequest</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.req_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.items)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.exp_date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.status)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.req_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.items)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.exp_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.status)
+            </td>
+            <td>
+                @{
+                    if (item.status == "Pending")
+                    {
+                        @Html.ActionLink("Delete", "DeleteRequest", new { id = item.req_id })
+                    }
+                }
+            </td>
+        </tr>
+    }
+
+</table>

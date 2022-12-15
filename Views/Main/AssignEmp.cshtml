@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "AssignEmp";
+}
+<br />
+<a href="/Main/logout">
+    <button style="float:right" class="btn-warning col-lg-1">Logout</button>
+</a>
+<a href="/Main/DashAdmin">
+    <button style="float:right" class="btn-warning col-lg-1">Home</button>
+</a>
+
+<h2>Employee Assignment</h2>
+<form action="" method="post">
+    <input type="text" readonly class="form-control" name="req_id" value="@Model.Request.req_id" /> <br />
+    <input type="text" readonly class="form-control" name="items" value="@Model.Request.items" /> <br />
+    <input type="text" readonly class="form-control" name="exp_date" value="@Model.Request.exp_date" /> <br />
+    <input type="text" readonly class="form-control" name="status" value="@Model.Request.status" /> <br />
+    <input type="text" readonly class="form-control" name="r_id" value="@Model.Request.Restaurant.r_name" /> <br />
+    <label for="e_id">Select Employee</label>
+    <select name="e_id">
+        @foreach (var item in Model.Employee)
+        {
+            <option value="@item.e_id">@item.e_name</option>
+        }
+    </select><br /><br />
+    <input type="submit" name="submit" value="Confirm" />
+</form>
+
